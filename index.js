@@ -1,9 +1,11 @@
 const inquirer = require('inquirer');
-const Employee = require('./lib/employee');
+// const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
-// const generateHTML = require('./dist/generateHTML');
+const generateHTML = require('./dist/generateHTML');
+const fs = require('fs')
+const employee = [];
 
 const questions = [
     {
@@ -136,7 +138,7 @@ let engineerQuestion = [
 let internQuestion = [
     {
         type: 'input',
-        name: 'githubID',
+        name: 'school',
         message: 'What School does the Intern attend?'
     }
 ];
@@ -164,6 +166,8 @@ function init() {
                 inquirer.prompt(managerQuestion)
                     .then(function (managerAnswer) {
                         console.log(answers, managerAnswer);
+                        const managerObj = new Manager(answers.employeeName, answers.employeeID, answers.employeeEmail, managerAnswer.officeNumber);
+                        employee.push(managerObj);
                         askFinal();
                     });
             };
@@ -171,6 +175,8 @@ function init() {
                 inquirer.prompt(engineerQuestion)
                     .then(function (engineerAnswer) {
                         console.log(answers, engineerAnswer);
+                        const engineerObj = new Engineer(answers.employeeName, answers.employeeID, answers.employeeEmail, engineerAnswer.githubID);
+                        employee.push(engineerObj);
                         askFinal();
                     });
             };
@@ -178,6 +184,8 @@ function init() {
                 inquirer.prompt(internQuestion)
                     .then(function (internAnswer) {
                         console.log(answers, internAnswer);
+                        const internObj = new Intern(answers.employeeName, answers.employeeID, answers.employeeEmail, internAnswer.school);
+                        employee.push(internObj);
                         askFinal();
                     });
             };
@@ -209,7 +217,15 @@ function askFinal() {
         .then(function (finalizeAnswer) {
             if (finalizeAnswer.finalize === 'No') {
                 handleEmployeeChoice();
-            };
+            } else {
+                const template = generateHTML(employee)
+                console.log(template)
+                fs.writeFile('index.html', template, (err) => {
+                    if (err) throw err;
+                    console.log('We have built an html file');
+                });
+            }
+        
         });
 };
 
