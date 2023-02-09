@@ -192,6 +192,7 @@ function init() {
         });
 };
 
+// Runs the init function without the manager options
 function afterManager() {
     inquirer.prompt(afterManagerQuestions)
         .then(function (answers) {
@@ -199,6 +200,8 @@ function afterManager() {
                 inquirer.prompt(engineerQuestion)
                     .then(function (engineerAnswer) {
                         console.log(answers, engineerAnswer);
+                        const engineerObj = new Engineer(answers.employeeName, answers.employeeID, answers.employeeEmail, engineerAnswer.githubID);
+                        employee.push(engineerObj);
                         askFinal();
                     });
             };
@@ -206,6 +209,8 @@ function afterManager() {
                 inquirer.prompt(internQuestion)
                     .then(function (internAnswer) {
                         console.log(answers, internAnswer);
+                        const internObj = new Intern(answers.employeeName, answers.employeeID, answers.employeeEmail, internAnswer.school);
+                        employee.push(internObj);
                         askFinal();
                     });
             };
@@ -225,10 +230,11 @@ function askFinal() {
                     console.log('We have built an html file');
                 });
             }
-        
+
         });
 };
 
+// If manager has been selected the option to select a manager goes away
 function handleEmployeeChoice(employeeChoice) {
     if (employeeChoice === "Manager") {
         afterManager();
