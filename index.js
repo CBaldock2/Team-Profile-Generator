@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
+// const generateHTML = require('./dist/generateHTML');
 
 const questions = [
     {
@@ -160,21 +160,21 @@ function init() {
                 inquirer.prompt(managerQuestion)
                     .then(function (managerAnswer) {
                         console.log(answers, managerAnswer);
-                        handleEmployeeChoice(answers.employeeChoice);
+                        askFinal();
                     });
             };
             if (answers.employeeChoice === 'Engineer') {
                 inquirer.prompt(engineerQuestion)
                     .then(function (engineerAnswer) {
                         console.log(answers, engineerAnswer);
-                        handleEmployeeChoice(answers.employeeChoice);
+                        askFinal();
                     });
             };
             if (answers.employeeChoice === 'Intern') {
                 inquirer.prompt(internQuestion)
                     .then(function (internAnswer) {
                         console.log(answers, internAnswer);
-                        handleEmployeeChoice(answers.employeeChoice);
+                        askFinal();
                     });
             };
         });
