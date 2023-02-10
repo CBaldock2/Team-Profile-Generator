@@ -168,7 +168,7 @@ function init() {
                         console.log(answers, managerAnswer);
                         const managerObj = new Manager(answers.employeeName, answers.employeeID, answers.employeeEmail, managerAnswer.officeNumber);
                         employee.push(managerObj);
-                        askFinal();
+                        askFinal(answers.employeeChoice);
                     });
             };
             if (answers.employeeChoice === 'Engineer') {
@@ -217,11 +217,11 @@ function afterManager() {
         });
 };
 
-function askFinal() {
+function askFinal(employeeChoice) {
     inquirer.prompt(finalize)
         .then(function (finalizeAnswer) {
             if (finalizeAnswer.finalize === 'No') {
-                handleEmployeeChoice();
+                handleEmployeeChoice(employeeChoice);
             } else {
                 const template = generateHTML(employee)
                 console.log(template)
