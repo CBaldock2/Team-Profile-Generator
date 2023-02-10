@@ -40,7 +40,7 @@
   <br>
   A [link](https://drive.google.com/file/d/15GQ45ypyk0bdIBaXNPBWpG4DdlY-2s2N/view) to a video of me running the tests.
   <br>
-  
+  The [link](https://cbaldock2.github.io/Team-Profile-Generator/) to the Team Profile Generator page.
 
   ## Testing
   <a name= 'tests'></a>
