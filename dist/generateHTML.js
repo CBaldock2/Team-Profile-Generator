@@ -46,7 +46,7 @@ function generateSections(employee) {
                     <h3>${employee[i].getName()}</h3>
                     <h4><i class="fas fa-mug-hot"></i> ${employee[i].getRole()}</h4>
                 </div>
-                <div class="card" style="width: 18rem;">
+                <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <p>ID: ${employee[i].getId()}</p>
@@ -67,7 +67,7 @@ function generateSections(employee) {
                         <h3>${employee[i].getName()}</h3>
                         <h4><i class="fas fa-glasses"></i>${employee[i].getRole()}</h4>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <p>ID: ${employee[i].getId()}</p>
@@ -86,7 +86,7 @@ function generateSections(employee) {
                         <h3>${employee[i].getName()}</h3>
                         <h4><i class="fas fa-graduation-cap"></i> ${employee[i].getRole()}</h4>
                     </div>
-                    <div class="card" style="width: 18rem;">
+                    <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <p>ID:</p>
