@@ -177,7 +177,7 @@ function init() {
                         console.log(answers, engineerAnswer);
                         const engineerObj = new Engineer(answers.employeeName, answers.employeeID, answers.employeeEmail, engineerAnswer.githubID);
                         employee.push(engineerObj);
-                        askFinal();
+                        askFinal(answers.employeeChoice);
                     });
             };
             if (answers.employeeChoice === 'Intern') {
@@ -186,7 +186,7 @@ function init() {
                         console.log(answers, internAnswer);
                         const internObj = new Intern(answers.employeeName, answers.employeeID, answers.employeeEmail, internAnswer.school);
                         employee.push(internObj);
-                        askFinal();
+                        askFinal(answers.employeeChoice);
                     });
             };
         });
@@ -202,7 +202,7 @@ function afterManager() {
                         console.log(answers, engineerAnswer);
                         const engineerObj = new Engineer(answers.employeeName, answers.employeeID, answers.employeeEmail, engineerAnswer.githubID);
                         employee.push(engineerObj);
-                        askFinal();
+                        askFinal(answers.employeeChoice);
                     });
             };
             if (answers.employeeChoice === 'Intern') {
@@ -211,7 +211,7 @@ function afterManager() {
                         console.log(answers, internAnswer);
                         const internObj = new Intern(answers.employeeName, answers.employeeID, answers.employeeEmail, internAnswer.school);
                         employee.push(internObj);
-                        askFinal();
+                        askFinal(answers.employeeChoice);
                     });
             };
         });
